@@ -1,12 +1,12 @@
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class DeltaEncoderTest {
     @Test
     void encodingZerosReturnsZeros() {
         int[] testResult = DeltaEncoder.encode(testZeros).getEncodedRepresentation();
-        assert(Arrays.equals(testZeros, testResult));
+        assertArrayEquals(testZeros, testResult);
     }
 
     int[] testZeros = new int[20];
@@ -16,10 +16,10 @@ class DeltaEncoderTest {
     @Test
     void decodeIsInverseOfEncode() {
         DeltaEncoder testResult = DeltaEncoder.encode(testZeros);
-        assert(Arrays.equals(testZeros, testResult.decode()));
+        assertArrayEquals(testZeros, testResult.decode());
         testResult = DeltaEncoder.encode(testOnes);
-        assert(Arrays.equals(testOnes, testResult.decode()));
+        assertArrayEquals(testOnes, testResult.decode());
         testResult = DeltaEncoder.encode(testArithmeticSequence);
-        assert(Arrays.equals(testArithmeticSequence, testResult.decode()));
+        assertArrayEquals(testArithmeticSequence, testResult.decode());
     }
-};
+}

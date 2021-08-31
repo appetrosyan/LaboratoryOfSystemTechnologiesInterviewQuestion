@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class RunLengthEncodedTest {
     int[] testZeros = new int[20];
@@ -10,10 +10,10 @@ class RunLengthEncodedTest {
     @Test
     void decodeIsInverseOfEncode() {
         RunLengthEncoder testResult = RunLengthEncoder.encode(testZeros);
-        assert(Arrays.equals(testZeros, testResult.decode()));
+        assertArrayEquals(testZeros, testResult.decode());
         testResult = RunLengthEncoder.encode(testOnes);
-        assert(Arrays.equals(testOnes, testResult.decode()));
+        assertArrayEquals(testOnes, testResult.decode());
         testResult = RunLengthEncoder.encode(testArithmeticSequence);
-        assert(Arrays.equals(testArithmeticSequence, testResult.decode()));
+        assertArrayEquals(testArithmeticSequence, testResult.decode());
     }
 }
